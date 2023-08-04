@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { GeoJSON, useMap } from "react-leaflet";
 
 import filterGeoJSON from "./data/filter.json";
 import fullGeoJSON from "./data/full.json";
 
 import "./hexo.scss";
+import { atom, useAtom } from "jotai";
 
-const configs = [
+export const hexogonsConfig = [
   {
     id: 1,
     label: "Null",
@@ -84,26 +84,14 @@ const configs = [
   },
 ];
 
-export const Hexo = () => {
-  const map = useMap();
-  const geoJsonLayer = useRef(null);
-  const [selectValue, setSelectValue] = useState(1);
+export const selectedHexoAtom = atom(1);
 
-  useEffect(() => {
-    map.invalidateSize();
-  }, []);
-
-  useEffect(() => {
-    console.log(configs.find((config) => config.id === selectValue)?.data);
-    const data = configs.find((config) => config.id === selectValue).data;
-
-    if (data && geoJsonLayer.current) {
-      geoJsonLayer.current.clearLayers().addData(data);
-    }
-  }, [selectValue]);
+export const HexoMenu = () => {
+  const [selectValue, setSelectValue] = useAtom(selectedHexoAtom);
 
   return (
-    <>
+    <div className="hexo__item">
+      <p className="hexo__label">Гексогоны:</p>
       <select
         value={`${selectValue}`}
         onChange={(e) => {
@@ -112,21 +100,12 @@ export const Hexo = () => {
         }}
         className="hexo__select"
       >
-        {configs.map((config) => (
+        {hexogonsConfig.map((config) => (
           <option key={`hexo-option-${config.id}`} value={config.id}>
             {config.label}
           </option>
         ))}
       </select>
-
-      {selectValue && (
-        <GeoJSON ref={geoJsonLayer} />
-
-        // <GeoJSON
-        //   data={{ ...configs.find((config) => config.id === selectValue).data }}
-        //   // style={{ color: '#000000', fillColor: 'white', weight: 1 }}
-        // />
-      )}
-    </>
+    </div>
   );
 };

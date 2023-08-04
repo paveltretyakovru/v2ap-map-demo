@@ -1,8 +1,15 @@
+/*
+ *   Copyright (c) 2023 
+ *   All rights reserved.
+ */
 .hexo {
-  &__select {
-    top: 20px;
-    left: 50%;
-    z-index: 400;
-    position: absolute;
+  &__item {
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 10px;
+  }
+
+  &__label {
+    margin-right: 10px;
   }
 }

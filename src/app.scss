@@ -1,4 +1,20 @@
+/*
+ *   Copyright (c) 2023 
+ *   All rights reserved.
+ */
 @import 'leaflet/dist/leaflet.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // font-size: 40px;
+  width: 100%;
+  min-height: 100vh;
+}
 
 .app {
   width: 100%;
@@ -7,4 +23,22 @@
 
 .leaflet-control-attribution {
   display: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: [sidebar] 300px [content] 1fr;
+  grid-template-rows: 1fr;
+}
+
+.form {
+  &__item {
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 10px;
+  }
+
+  &__label {
+    margin-right: 10px;
+  }
 }

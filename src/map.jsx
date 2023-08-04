@@ -1,5 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
-import { Hexo } from "./hexo";
+import { HexoLayer } from "./hexo/hexo.layer";
+import { RsuRadiusLayer } from "./rsu-radius/rsu-radius.layer";
+import { Zoom } from "./components/zoom/zoom";
 
 export const defaultZoom = 14;
 export const deafultCenter = [53.195878, 50.100202];
@@ -16,7 +18,9 @@ export const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Hexo />
+      <HexoLayer />
+      <RsuRadiusLayer />
+      <Zoom />
     </MapContainer>
   );
 };

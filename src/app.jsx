@@ -1,9 +1,16 @@
 import "./app.scss";
+import { HexoMenu } from "./hexo/hexo.menu";
 import { Map } from "./map";
+import { RsuRadiusMenu } from "./rsu-radius/rsu-radius.menu";
 
 export function App() {
   return (
-    <div className="app">
+    <div className="app container">
+      <div className="sidebar">
+        <HexoMenu />
+        <RsuRadiusMenu />
+      </div>
+
       <Map />
     </div>
   );

@@ -1,0 +1,22 @@
+/*
+ *   Copyright (c) 2023 
+ *   All rights reserved.
+ */
+.zoom {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 400;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  width: 50px;
+  border: 3px solid #ccc;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-weight: 900;
+  }
+}
