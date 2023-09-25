@@ -2,6 +2,7 @@ import "./app.scss";
 import { HexoMenu } from "./hexo/hexo.menu";
 import { Map } from "./map";
 import { RsuRadiusMenu } from "./rsu-radius/rsu-radius.menu";
+import { VectorMenu } from "./vector/vector.menu";
 
 export function App() {
   return (
@@ -9,6 +10,7 @@ export function App() {
       <div className="sidebar">
         <HexoMenu />
         <RsuRadiusMenu />
+        <VectorMenu />
       </div>
 
       <Map />
